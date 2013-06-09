@@ -16,11 +16,16 @@ class MapController < ApplicationController
 		@place.each_index do |x|
 			@markerData << {"name"=> @place[x].place, "longitude"=> @place[x].longitude, "latitude"=> @place[x].latitude}
 		end
+
+		@start_date = @trip.start_date
+		@end_date = @trip.end_date
 		@markerData = @markerData.to_json
 		respond_to do |format|
 			format.html
 			format.json {render json: @markerData}
 		end
+
+
 	end
 
 end

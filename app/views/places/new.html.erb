@@ -26,10 +26,19 @@
         <p><%= form.text_field :place, :placeholder => 'Add another place', :id => id='searchTextField' %></p>
         <p><%= form.hidden_field :latitude, :placeholder => 'enter the latitude' %></p>
         <p><%= form.hidden_field :longitude, :placeholder => 'we need the longitude too' %></p>
+        <div class="clear-fix place-bar">
+          <div id="datepicker"></div>
+        </div>
         <p><%= form.submit "Add", :class => 'btn btn-block btn-primary' %></p>
       <% end %>
     </section>
   </article>
+
+  <script type="text/javascript">
+  $(function() {
+    $( "#datepicker" ).datepicker({ minDate: (new Date(2013, 6, 5)), maxDate: (new Date(2013, 6, 8)) });
+  });
+  </script>
 
   <script type="text/javascript">
   function initialize() {
