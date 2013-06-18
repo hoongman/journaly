@@ -22,5 +22,13 @@ class Place < ActiveRecord::Base
   belongs_to :previous_place, :class_name => "Place", :foreign_key => :previous_place_id
   has_one :next_place, :class_name => "Place", :foreign_key => :next_place_id
   validates :place, :presence => true
+
+	def to_h
+		linked_places = []
+		linked_places << {"place" => @place.place, "next_place" =>@places.find(next_place_id).place}
+
+		return linked_places
+	end
+
 end
 
