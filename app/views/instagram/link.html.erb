@@ -1,33 +1,21 @@
-<h1> Your Instagram Photos </h1>
+<section class="base-modal user-modal">
+  <header>
+    <h1></h1>
+  </header>
+  <section class="clear-fix trip-bar">
+      <header>
+        <h1>Your Instagram Photos</h1>
+      </header>
+    </section>
+<a class="btn btn-primary add-entry"><%= button_to "Add Photos to Journal", :action=>"add"%></a>
+</section>
 
-<form name="submit" action="/instagram/link" method="post">
-<input type="submit" value="add photos to journal">
-</form>
 
-<h2> From Date: </h2>
-<h2> To Date: </h2>
 
-<table>
-	<tr>
-		<td><img src="<%= @image_urls[0] %>"/></td>
-		<td><img src="<%= @image_urls[1] %>"/></td>
-		<td><img src="<%= @image_urls[2] %>"/></td>
-	</tr>
 
-	<tr>
-		<td><img src="<%= @image_urls[3] %>"/></td>
-		<td><img src="<%= @image_urls[4] %>"/></td>
-		<td><img src="<%= @image_urls[5] %>"/></td>
-	</tr>
 
-	<tr>
-		<td><img src="<%= @image_urls[6] %>"/></td>
-		<td><img src="<%= @image_urls[7] %>"/></td>
-		<td><img src="<%= @image_urls[8] %>"/></td>
-	</tr>
-		<% @images.each do |image| %>
-	<tr>
-		<td><img src="<%= image.uri %>"/></td>
-  </tr>
-	<% end %>
-</table>
+<div class="instagram-photos">
+<% @images.each do |image| %>
+		<img src="<%= image.uri %>"/>
+<% end %>
+</div>

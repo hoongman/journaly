@@ -18,8 +18,8 @@ Journaly::Application.routes.draw do
   #resources :instagram
   match 'instagram' => 'instagram#show' , :via => :get
   match 'instagram/link' => 'instagram#link' , :via => :get
-
   match 'instagram/media' => 'instagram#media' , :via => :get
+  match 'instagram/link' => 'instagram#add' , :via => :post
 
   resources :map do
     match 'map' => 'map#index'

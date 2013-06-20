@@ -12,7 +12,8 @@ class InstagramController < ApplicationController
     trip_id, place_id = params['trip_place_id'].split('@')
     @trip = Trip.find(trip_id)
     @place = @trip.places.find(place_id)
-
+    session[:place_id] = place_id
+    session[:trip_id] = trip_id
     code = params['code']
     user =  User.find(session[:user])
     begin
@@ -81,16 +82,22 @@ class InstagramController < ApplicationController
 
       @trip = Trip.find(params[:trip_id])
       @place = Place.find(params[:place_id])
+      @images = Image.all
       #session[:user] = @user.id
       #redirect_to user_path(@user)
     end
 
     def add
       puts 'hi'
-      @trip = Trip.find(params[:trip_id])
-      @place = Place.find(params[:place_id])
+      #@trip = Trip.find(params[:trip_id])
+      #@place = Place.find(params[:place_id])
       image_array = Image.all
-      image_array.each{|image| image.update_attribute(:place, Place.find(params[:place_id]))}
+      image_array.each{|image| image.update_attribute(:place, Place.find(session[:place_id]))}
+
+
+      @trip = Trip.find(session[:trip_id])
+      @place = @trip.places.find(session[:place_id])
+
       redirect_to trip_place_path(@trip, @place)
     end
 

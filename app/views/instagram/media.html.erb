@@ -7,7 +7,7 @@
       <h1><%= @trip.name %> - <%= @place.place %></h1>
     </section>
     <nav>
-      <a class="btn btn-primary add-entry"><%= button_to "Add Photos to Place", :action=>"add"%></a>
+      <a class="btn btn-primary add-entry"><%= button_to "Add Photos to Journal", :action=>"add"%></a>
     </nav>
   </header>
 
@@ -15,31 +15,8 @@
 
 <h1>media</h1>
 
-<table>
-	<tr>
-		<td><img src="<%= @image_urls[0] %>"/></td>
-		<td><img src="<%= @image_urls[1] %>"/></td>
-		<td><img src="<%= @image_urls[2] %>"/></td>
-	</tr>
-
-	<tr>
-		<td><img src="<%= @image_urls[3] %>"/></td>
-		<td><img src="<%= @image_urls[4] %>"/></td>
-		<td><img src="<%= @image_urls[5] %>"/></td>
-	</tr>
-
-	<tr>
-		<td><img src="<%= @image_urls[6] %>"/></td>
-		<td><img src="<%= @image_urls[7] %>"/></td>
-		<td><img src="<%= @image_urls[8] %>"/></td>
-	</tr>
 
 	<% @images.each do |image| %>
-	<tr>
-		<td><img src="<%= image.uri %>"/></td>
-  </tr>
+		<img src="<%= image.uri %>"/>
 	<% end %>
-
-
-</table>
 
