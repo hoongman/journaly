@@ -30,7 +30,6 @@ class PlacesController < ApplicationController
 	def show
 		@trip = Trip.find(params[:trip_id])
 		@place = Place.find(params[:id])
-		@places = Place.all
 	end
 
 end

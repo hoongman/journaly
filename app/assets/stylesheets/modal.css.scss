@@ -22,12 +22,12 @@
       line-height: 28px;
       background: none;
     }
-    
+
   }
 }
 
-input#searchTextField, 
-input#from, 
+input#searchTextField,
+input#from,
 input#to, {
   margin-left:10px;
 }
@@ -46,7 +46,6 @@ input#to, {
 .trip-modal {
   margin: 100px 20%;
 }
-
 
 form#new_place label {
   margin: 10px 0 5px 10px;
@@ -114,7 +113,7 @@ p.clearLeft {
 }
 
 .errorExplanation ul {
-  float:left; 
+  float:left;
   margin-top:4px;
 }
 
@@ -125,5 +124,8 @@ p.clearLeft {
 div.field_with_errors {
   background-color: #ffffff;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> merging
