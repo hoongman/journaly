@@ -7,15 +7,14 @@
         <h1>Your Instagram Photos</h1>
       </header>
     </section>
-<a class="btn btn-primary add-entry"><%= button_to "Add Photos to Journal", :action=>"add"%></a>
+    <br>
+    <h2 style="text-align:center">Click on an image below to add it to your place</h2>
 </section>
 
 
-
-
-
 <div class="instagram-photos">
+
 <% @images.each do |image| %>
-		<img src="<%= image.uri %>"/>
+		<a href="/trips/<%=@trip.id%>/places/<%=@place.id%>/images/add/<%=image.id%>"><img src="<%= image.uri %>"/></a>
 <% end %>
 </div>

@@ -101,7 +101,13 @@ class InstagramController < ApplicationController
       redirect_to trip_place_path(@trip, @place)
     end
 
-
+    def add_image
+      @trip = Trip.find(params[:trip_id])
+      @place = Place.find(params[:place_id])
+      image = Image.find(params[:id])
+      image.update_attribute(:place, @place)
+      redirect_to trip_place_path(@trip, @place)
+    end
 end
 
 #   def recent_instagram_media(user)

@@ -8,6 +8,7 @@ Journaly::Application.routes.draw do
       match '/media' => 'instagram#media' , :via => :get
       match '/media' => 'instagram#media' , :via => :post
       match '/' => 'instagram#add' , :via => :post
+      match '/images/add/:id', to: 'instagram#add_image'
     end
   end
 

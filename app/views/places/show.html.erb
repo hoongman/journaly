@@ -8,7 +8,8 @@
     </section>
 
     <nav>
-      <a class="btn btn-primary add-entry">Add Journal Entry</a>
+      <a class="btn btn-primary travel-map" href="/map/<%= @trip.id %>">Travel Map</a>
+      <a class="btn btn-info add-entry">Add Journal Entry</a>
       <% if !User.find(session[:user]).instagram_account %>
     <%= render :template => "instagram/show" %>
 <% end %>
