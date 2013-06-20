@@ -1,39 +1,39 @@
-<!--<style type="text/css">
-table.curvedEdges { border:10px solid RoyalBlue;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
-table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;padding:5px; }
-</style>
- Be sure to place the above styles (i.e. everything between the <style></style> tags) into the document 'head' (i.e. between the <head></head> tags. Everything below goes inside the <body></body> tags) -->
-<section>
-	<header class="route-header">
- 	<h1>Route Details</h1>
-	</header>
+<section class="base-modal user-modal">
+  <header>
+    <h1>Route Details</h1>
+  </header>
+  <section class="clear-fix trip-bar">
+      <header>
+        <h1>Destinations</h1>
+      </header>
+    </section>
 </section>
 
-<table class="route-header">
-			<tr>
-				<td><h1>Route Details</h1></td>
-			</tr>
-</table>
-
-<br>
-
-<table class="curvedEdges"  border="2" bgcolor="#5dade2" align="center">
-			<tr>
-				<td width="800px"><h2>Destinations</h2></td>
-			</tr>
+<article class="base-modal user-modal">
+	<section class="clear-fix trip-bar">
+  <header>
+		<table class="curvedEdges"  border="2" bgcolor="#5dade2" align="center">
 	<% @linked_places.each do|place| %>
 			<tr>
 				<td><b><%= place %></b></td>
 			</tr>
 	<% end %>
 </table>
-
+</article>
 <br>
 
 <%- link = "" %>
 <%- @linked_places.each do|place| %>
 <%- link = link + place + '/'%>
 <%- end %>
+	</header>
+	</section>
+
+
+
+<br>
+
+
 
 
 <table width="500px" bgcolor="transparent" align="center" style= "text-align: center">
