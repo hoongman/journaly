@@ -1,11 +1,19 @@
-<h1> Your Instagram Photos </h1>
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
-<form name="submit" action="/instagram/link" method="post">
-<input type="submit" value="add photos to journal">
-</form>
+<section class="clear-fix media-page">
 
-<h2> From Date: </h2>
-<h2> To Date: </h2>
+  <header class="media-page-header">
+    <section class="media-details">
+      <h1><%= @trip.name %> - <%= @place.place %></h1>
+    </section>
+    <nav>
+      <a class="btn btn-primary add-entry"><%= button_to "Add Photos to Place", :action=>"add"%></a>
+    </nav>
+  </header>
+
+
+
+<h1>media</h1>
 
 <table>
 	<tr>
@@ -25,9 +33,13 @@
 		<td><img src="<%= @image_urls[7] %>"/></td>
 		<td><img src="<%= @image_urls[8] %>"/></td>
 	</tr>
-		<% @images.each do |image| %>
+
+	<% @images.each do |image| %>
 	<tr>
 		<td><img src="<%= image.uri %>"/></td>
   </tr>
 	<% end %>
+
+
 </table>
+

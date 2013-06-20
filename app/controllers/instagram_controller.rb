@@ -33,10 +33,20 @@ class InstagramController < ApplicationController
         puts 'boom'
         puts e.message
         puts e.inspect
-
-
-
     end
+
+    @image_data = instagram.fetch('data')
+    images = InstagramImage.build_images(@image_data)
+    images.each{|image| Image.find_or_create_by_uri(:uri => image.high_res_url, :caption => image.caption)}
+
+      image_array = Image.all
+      @images = Image.all
+      @image_urls = []
+      image_array.each{|image| @image_urls << image.uri}
+      puts @image_urls
+
+=begin
+    image = Image.find_or_create_by_uri()
     puts '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
     puts @response
     puts '================================================='
@@ -53,20 +63,38 @@ class InstagramController < ApplicationController
     puts image
     puts '******************************'
     puts image.caption
+=end
 
-    def create
-      Image.create(params[:user])
-      session[:user] = @user.id
-      redirect_to user_path(@user)
-    end
 
     #puts InstagramImage.new(image).caption
 
 
     #image_array.map{|image| my_images << InstagramImage.build_images(image.to_json)}
-
-
   end
+
+    def media
+      puts "================"
+      image_array = Image.all
+      @image_urls = []
+      image_array.each{|image| @image_urls << image.uri}
+      puts @image_urls
+
+      @trip = Trip.find(params[:trip_id])
+      @place = Place.find(params[:place_id])
+      #session[:user] = @user.id
+      #redirect_to user_path(@user)
+    end
+
+    def add
+      puts 'hi'
+      @trip = Trip.find(params[:trip_id])
+      @place = Place.find(params[:place_id])
+      image_array = Image.all
+      image_array.each{|image| image.update_attribute(:place, Place.find(params[:place_id]))}
+      redirect_to trip_place_path(@trip, @place)
+    end
+
+
 end
 
 #   def recent_instagram_media(user)

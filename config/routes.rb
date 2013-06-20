@@ -5,7 +5,9 @@ Journaly::Application.routes.draw do
   resources :trips do #gives the 7 restful routes #see rake routes
     resources :places do
       resources :journal_entries
-
+      match '/media' => 'instagram#media' , :via => :get
+      match '/media' => 'instagram#media' , :via => :post
+      match '/' => 'instagram#add' , :via => :post
     end
   end
 
@@ -16,6 +18,8 @@ Journaly::Application.routes.draw do
   #resources :instagram
   match 'instagram' => 'instagram#show' , :via => :get
   match 'instagram/link' => 'instagram#link' , :via => :get
+
+  match 'instagram/media' => 'instagram#media' , :via => :get
 
   resources :map do
     match 'map' => 'map#index'
