@@ -3,11 +3,16 @@
 
     <section class="clear-fix place-bar">
         <%= form_for([@trip, @trip.places.build]) do |form| %>
-        <%- if @trip.places.length > 1 %> 
+
+        <%= form.error_messages :header_message => nil,
+          :message => "Please fix the following fields:",
+          :header_tag => :h3 %>
+
+        <%- if @trip.places.length > 1 %>
 
           <%= form.label :previous_place_id, 'Travelling from' %>
             <select id="prev_place" name='place[previous_place_id]'>
-              
+
               <% @trip.places.each do |place| %>
                 <%- if place.next_place_id == nil %>
                   <%- if @trip.places[-2].place == place.place %>
@@ -52,7 +57,7 @@
           <input type="text" id="from" name="from" placeholder="Arrival date"/>
           <label for="to">Departure date:</label>
           <input type="text" id="to" name="to" placeholder="Departure date"/>
-          
+
         </section>-->
     </section>
   </article>
@@ -80,7 +85,7 @@ function noTakenDays(date) {
     }
   }
   return[true];
-}; 
+};
 
 function unavailableDates(date) {
   return noTakenDays(date)
@@ -97,7 +102,7 @@ $(function() {
             $( "#to" ).datepicker( "option", "minDate", selectedDate );
             var sdate = $("#from" ).datepicker("getDate");
             $('#place_start_date').val(sdate);
-            
+
           }
 
         });
@@ -131,7 +136,7 @@ $(function() {
       $('#place_longitude').val(longitude);
       $('#place_previous_place_id').val($('#prev_place').val());
     });
-    
+
   };
   google.maps.event.addDomListener(window, 'load', initialize);
   </script>
