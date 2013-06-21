@@ -17,7 +17,7 @@ class InstagramController < ApplicationController
     code = params['code']
     user =  User.find(session[:user])
     begin
-       #@response = RestClient.post 'https://api.instagram.com/oauth/access_token', { :code => code, :client_id => 'f3c6d901c4964e6097d14d208fa01a96', :client_secret => '9f2e75a6dde749cbadf4cddc5260ea63', :grant_type => 'authorization_code', :redirect_uri => 'http://localhost:3000/instagram/link'}
+       @response = RestClient.post 'https://api.instagram.com/oauth/access_token', { :code => code, :client_id => '5b67ff0b32434374a78613490678a851', :client_secret => 'cd22def96bb34ad3abc36c8f4be509d5', :grant_type => 'authorization_code', :redirect_uri => "#{request.protocol}#{request.host}:#{request.port}/instagram/link"}
 
       @response = RestClient.get 'https://api.instagram.com/v1/users/24480272/media/recent/?access_token=24480272.f3c6d90.7eada26532fc4d8aa4ae408a904d5216'
 
